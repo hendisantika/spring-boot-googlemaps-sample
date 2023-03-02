@@ -5,6 +5,9 @@ import com.hendisantika.springbootgooglemapssample.repository.PlaceSenseReposito
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by IntelliJ IDEA.
  * Project : spring-boot-googlemaps-sample
@@ -29,4 +32,13 @@ public class PlaceSenseStats {
         return placeSenseRepository.save(placeSense);
     }
 
+    private PlaceSenseStats computeStats(Iterable<PlaceSense> placeSenses) {
+        PlaceSenseStats stats = new PlaceSenseStats();
+        Set<String> visitedCountries = new HashSet<>();
+        for (PlaceSense placeSense : placeSenses) {
+            collectStats(placeSense, stats, visitedCountries);
+        }
+        stats.numVisitedCountries = visitedCountries.size();
+        return stats;
+    }
 }
