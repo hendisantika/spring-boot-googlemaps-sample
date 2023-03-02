@@ -4,7 +4,7 @@ import com.hendisantika.springbootgooglemapssample.entity.Place;
 import com.hendisantika.springbootgooglemapssample.entity.PlaceSense;
 import com.hendisantika.springbootgooglemapssample.entity.Sense;
 import com.hendisantika.springbootgooglemapssample.repository.PlaceSenseRepository;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -21,9 +21,14 @@ import java.util.Set;
  * To change this template use File | Settings | File Templates.
  */
 @Service
-@RequiredArgsConstructor
 public class PlaceSenseStats {
-    private final PlaceSenseRepository placeSenseRepository;
+    public int numVisitedPlaces;
+    public int numWannaGoPlaces;
+    public int numLovedPlaces;
+    public int numVisitedCountries;
+
+    @Autowired
+    private PlaceSenseRepository placeSenseRepository;
 
     public PlaceSenseStats getStats() {
         Iterable<PlaceSense> placeSenses = placeSenseRepository.findAll();
