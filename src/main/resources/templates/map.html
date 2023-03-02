@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/{version}/css/bootstrap.min.css(version=${bootstrapVersion})}"
+          type="text/css">
+    <!-- The awesome Fontawesome CSS -->
+    <link rel="stylesheet" th:href="@{webjars/font-awesome/{version}/css/all.min.css(version=${faVersion})}"
+          type="text/css">
+    <!-- Our css for this map document -->
+    <link href="res/css/map.css" rel="stylesheet" type="text/css">
+
+    <!-- jquery library -->
+    <script defer th:src="@{webjars/jquery/{version}/jquery.min.js(version=${jqueryVersion})}"></script>
+    <!-- Reverse geocode lookup service -->
+    <script defer src="res/js/revgeocode.js" type="text/javascript"></script>
+    <!-- Our javascript functions -->
+    <script defer src="res/js/lagajax.js" type="text/javascript"></script>
+    <script defer src="res/js/placesense.js" type="text/javascript"></script>
+    <script defer src="res/js/lagamap.js" type="text/javascript"></script>
+    <script defer src="res/js/sense.js" type="text/javascript"></script>
+    <script defer src="res/js/placesense-marker.js" type="text/javascript"></script>
+    <script defer src="res/js/placesense-window.js" type="text/javascript"></script>
+    <script defer src="res/js/lagalag.js" type="text/javascript"></script>
+
+    <!-- Google Maps. Requires an API key to be set in application.properties.
+         Callback function to initialize the map is defined in lagalag.js -->
+    <script defer
+            src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+            th:src="@{https://maps.googleapis.com/maps/api/js(key=${apiKey},callback=initMap)}"
+            type="text/javascript">
+    </script>
+</head>
+<body>
+<!-- Map will be rendered inside this div. -->
+<div id="map"></div>
+
+<div id="lagalag-place-sense-window-div">
+    <div class="lagalag-place-sense-window">
+        <div class="lagalag-place-sense-title">Have you been to <span class="font-weight-bold" id="lagalag-place-name">me</span>?
+        </div>
+        <ul>
+            <li><label class="fancy-radio"><input id="YES_LOVED_IT" name="place-sense" type="radio"/><span
+                    class="yes-loved-it">Yes, I loved it!</span></label></li>
+            <li><label class="fancy-radio"><input id="YES_MEH" name="place-sense" type="radio"/><span class="yes-meh">Yes, it was ok.</span></label>
+            </li>
+            <li><label class="fancy-radio"><input id="YES_HATED_IT" name="place-sense" type="radio"/><span
+                    class="yes-hated-it">Yes, I hated it!</span></label></li>
+            <li><label class="fancy-radio"><input id="NO_WANNA_GO" name="place-sense" type="radio"/><span
+                    class="no-wanna-go">No, but I want to visit!</span></label></li>
+            <li><label class="fancy-radio"><input id="NOT_INTERESTED" name="place-sense" type="radio"/><span
+                    class="not-interested">Nope, not interested</span></label></li>
+        </ul>
+        <button class="btn btn-primary btn-sm" id="lagalag-place-sense-save" type="button">Save</button>
+        <button class="btn btn-secondary btn-sm" id="lagalag-place-sense-cancel" type="button">Cancel</button>
+    </div>
+</div>
+<div id="lagalag-nowhere-window-div">
+    <div class="lagalag-nowhere-window">
+        <p>Try zooming in and/or clicking elsewhere!</p>
+    </div>
+</div>
+</body>
+</html>
