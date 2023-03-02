@@ -1,5 +1,6 @@
 package com.hendisantika.springbootgooglemapssample.service;
 
+import com.hendisantika.springbootgooglemapssample.entity.PlaceSense;
 import com.hendisantika.springbootgooglemapssample.repository.PlaceSenseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,4 +19,9 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class PlaceSenseStats {
     private final PlaceSenseRepository placeSenseRepository;
+
+    public PlaceSenseStats getStats() {
+        Iterable<PlaceSense> placeSenses = placeSenseRepository.findAll();
+        return computeStats(placeSenses);
+    }
 }
