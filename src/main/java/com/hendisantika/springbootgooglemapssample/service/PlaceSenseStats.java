@@ -24,4 +24,9 @@ public class PlaceSenseStats {
         Iterable<PlaceSense> placeSenses = placeSenseRepository.findAll();
         return computeStats(placeSenses);
     }
+
+    public PlaceSense save(PlaceSense placeSense) {
+        return placeSenseRepository.save(placeSense);
+    }
+
 }
