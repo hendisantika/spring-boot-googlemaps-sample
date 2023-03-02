@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Spring Boot GMaps Demo</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" th:href="@{webjars/bootstrap/{version}/css/bootstrap.min.css(version=${bootstrapVersion})}"
+		  type="text/css">
+	<!-- "Cover" bootstrap template -->
+	<link href="res/css/cover-white.css" rel="stylesheet" type="text/css">
+	<!-- The awesome Fontawesome CSS -->
+	<link rel="stylesheet" th:href="@{webjars/font-awesome/{version}/css/all.min.css(version=${faVersion})}"
+		  type="text/css">
+	<!-- Our styles -->
+	<link href="res/css/lagalag.css" rel="stylesheet" type="text/css">
+
+	<!-- jquery library -->
+	<script defer th:src="@{webjars/jquery/{version}/jquery.min.js(version=${jqueryVersion})}"
+			type="text/javascript"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script defer
+			th:src="@{webjars/bootstrap/{version}/js/bootstrap.min.js(version=${bootstrapVersion})}" type="text/javascript"></script>
+	<!-- Our javascript functions for this document -->
+	<script defer src="res/js/index.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="site-wrapper">
+	<div class="site-wrapper-inner">
+		<div class="cover-container">
+			<div class="masthead clearfix">
+				<div class="inner">
+					<h3 class="masthead-brand">lagalag</h3>
+					<nav>
+					</nav>
+				</div>
+			</div>
+
+			<div class="inner cover" id="map-container">
+				<iframe id="map-frame" src="/map"></iframe>
+			</div>
+
+			<div id="stats">
+				<span class="stat"><span class="fas fa-map-marker-alt"></span> Places Visited: <span
+						id="numVisitedPlaces" th:text="${stats.numVisitedPlaces}">5</span></span>
+				<span class="stat"><span class="fas fa-globe-africa"></span> Countries Visited: <span
+						id="numVisitedCountries" th:text="${stats.numVisitedCountries}">3</span></span>
+				<span class="stat"><span class="fas fa-bookmark"></span> Places To Visit: <span id="numWannaGoPlaces"
+																								th:text="${stats.numWannaGoPlaces}">15</span></span>
+				<span class="stat"><span class="fas fa-heart"></span> Favorite Places: <span id="numLovedPlaces"
+																							 th:text="${stats.numLovedPlaces}">2</span></span>
+			</div>
+
+			<div class="mastfoot">
+				<div class="inner">
+					<p>hendisantika.com &copy; 2023</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
