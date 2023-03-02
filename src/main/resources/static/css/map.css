@@ -1,0 +1,127 @@
+/* For maps to render with a width > 0, always explicitly set the dimensions of the map element, body, and html! */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+#lagalag-nowhere-window-div {
+    display: none;
+}
+
+#lagalag-place-sense-window-div {
+    display: none;
+}
+
+.lagalag-place-sense-window {
+    font-size: 16px;
+    font-family: Helvetica;
+    padding: 5px;
+}
+
+.lagalag-nowhere-window {
+    font-size: 16px;
+    font-family: Helvetica;
+}
+
+.lagalag-place-sense-title {
+    padding-bottom: 5px;
+}
+
+.lagalag-place-sense-window ul {
+    list-style: none;
+    margin: 0px;
+    padding: 2px;
+}
+
+.lagalag-place-sense-window ul li {
+    width: 235px;
+}
+
+
+/* "Fancy radio" css c/o this guy (who used checkboxes but same concepts apply): 
+   https://codingwithspike.wordpress.com/2014/11/16/fancy-css-checkboxes-with-fontawesome/ */
+.fancy-radio {
+    margin-bottom: .3em;
+}
+
+.fancy-radio input[type="radio"] {
+    display: none;
+}
+
+.fancy-radio span {
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 200;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Make the text bold when the user checks the corresponding radio */
+.fancy-radio input[type="radio"]:checked ~ span {
+    font-weight: 700;
+}
+
+.fancy-radio span::before {
+    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    width: 1em;
+    height: 1em;
+    font-weight: 400;
+    margin-right: .6em;
+}
+
+/* Use the solid version of the font by setting the font weight */
+.fancy-radio input[type="radio"]:checked ~ span::before {
+    font-weight: 900;
+}
+
+.fancy-radio input[type="radio"]:checked ~ span.yes-loved-it {
+    color: red;
+}
+
+.fancy-radio span.yes-loved-it::before {
+    content: '\f004'; /* heart */
+    color: red;
+}
+
+.fancy-radio input[type="radio"]:checked ~ span.yes-meh {
+    color: orange;
+}
+
+.fancy-radio span.yes-meh::before {
+    content: '\f11a'; /* meh (emoji) */
+    color: orange;
+}
+
+.fancy-radio span.yes-hated-it::before {
+    content: '\f165'; /* thumbs-down */
+}
+
+.fancy-radio input[type="radio"]:checked ~ span.no-wanna-go {
+    color: green;
+}
+
+.fancy-radio span.no-wanna-go::before {
+    content: '\f02e'; /* bookmark */
+    color: green;
+    margin-left: .1em;
+    margin-right: .8em;
+}
+
+.fancy-radio input[type="radio"]:checked ~ span.not-interested {
+    color: blue;
+}
+
+.fancy-radio span.not-interested::before {
+    content: '\f057'; /* times circle (x) */
+    color: blue;
+}

@@ -1,0 +1,30 @@
+html,
+body {
+    height: 100%;
+}
+
+@media (min-width: 992px) {
+    .masthead,
+    .mastfoot,
+    .cover-container {
+        width: 900px;
+    }
+}
+
+.inner {
+    padding: 0;
+}
+
+#map-container {
+    width: 100%;
+    height: 500px;
+}
+
+#map-frame {
+    width: 100%;
+    height: 100%;
+}
+
+.stat {
+    margin: 0 15px;
+}
