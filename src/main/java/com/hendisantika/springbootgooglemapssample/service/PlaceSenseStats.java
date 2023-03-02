@@ -1,6 +1,8 @@
 package com.hendisantika.springbootgooglemapssample.service;
 
+import com.hendisantika.springbootgooglemapssample.entity.Place;
 import com.hendisantika.springbootgooglemapssample.entity.PlaceSense;
+import com.hendisantika.springbootgooglemapssample.entity.Sense;
 import com.hendisantika.springbootgooglemapssample.repository.PlaceSenseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -40,5 +42,20 @@ public class PlaceSenseStats {
         }
         stats.numVisitedCountries = visitedCountries.size();
         return stats;
+    }
+
+    private void collectStats(PlaceSense placeSense, PlaceSenseStats stats, Set<String> visitedCountries) {
+        Sense sense = placeSense.getSense();
+        if (sense.impliesVisited()) {
+            stats.numVisitedPlaces++;
+            Place place = placeSense.getPlace();
+            visitedCountries.add(place.getCountryCode());
+        }
+        if (sense == Sense.YES_LOVED_IT) {
+            stats.numLovedPlaces++;
+        }
+        if (sense == Sense.NO_WANNA_GO) {
+            stats.numWannaGoPlaces++;
+        }
     }
 }
