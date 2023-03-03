@@ -1,5 +1,6 @@
 package com.hendisantika.springbootgooglemapssample.controller;
 
+import com.hendisantika.springbootgooglemapssample.config.GmapsProperty;
 import com.hendisantika.springbootgooglemapssample.dto.PlaceSenseStatsDTO;
 import com.hendisantika.springbootgooglemapssample.service.PlaceSenseService;
 import lombok.RequiredArgsConstructor;
@@ -33,5 +34,11 @@ public class GmapsController {
         PlaceSenseStatsDTO statsDTO = dtoEntityMapper.map(stats, PlaceSenseStatsDTO.class);
         model.addAttribute("stats", statsDTO);
         return "index";
+    }
+
+    @GetMapping("/map")
+    public String mapPage(Model model) {
+        model.addAttribute("apiKey", env.getProperty(GmapsProperty.GMAPS_API_KEY));
+        return "map";
     }
 }
