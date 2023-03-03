@@ -21,7 +21,7 @@ import java.util.Set;
  * To change this template use File | Settings | File Templates.
  */
 @Service
-public class PlaceSenseStats {
+public class PlaceSenseService {
     public int numVisitedPlaces;
     public int numWannaGoPlaces;
     public int numLovedPlaces;
@@ -30,7 +30,7 @@ public class PlaceSenseStats {
     @Autowired
     private PlaceSenseRepository placeSenseRepository;
 
-    public PlaceSenseStats getStats() {
+    public PlaceSenseService getStats() {
         Iterable<PlaceSense> placeSenses = placeSenseRepository.findAll();
         return computeStats(placeSenses);
     }
@@ -39,8 +39,8 @@ public class PlaceSenseStats {
         return placeSenseRepository.save(placeSense);
     }
 
-    private PlaceSenseStats computeStats(Iterable<PlaceSense> placeSenses) {
-        PlaceSenseStats stats = new PlaceSenseStats();
+    private PlaceSenseService computeStats(Iterable<PlaceSense> placeSenses) {
+        PlaceSenseService stats = new PlaceSenseService();
         Set<String> visitedCountries = new HashSet<>();
         for (PlaceSense placeSense : placeSenses) {
             collectStats(placeSense, stats, visitedCountries);
@@ -49,7 +49,7 @@ public class PlaceSenseStats {
         return stats;
     }
 
-    private void collectStats(PlaceSense placeSense, PlaceSenseStats stats, Set<String> visitedCountries) {
+    private void collectStats(PlaceSense placeSense, PlaceSenseService stats, Set<String> visitedCountries) {
         Sense sense = placeSense.getSense();
         if (sense.impliesVisited()) {
             stats.numVisitedPlaces++;
