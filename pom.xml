@@ -17,7 +17,7 @@
         <java.version>21</java.version>
         <bootstrap.version>5.3.8</bootstrap.version>
         <jquery.version>3.7.1</jquery.version>
-        <fontawesome.version>7.0.0</fontawesome.version>
+        <fontawesome.version>7.0.1</fontawesome.version>
     </properties>
     <dependencies>
         <dependency>
