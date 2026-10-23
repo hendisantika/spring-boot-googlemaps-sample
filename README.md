@@ -1,5 +1,9 @@
 # Spring Boot Google Maps Sample
 
+[![Java CI with Maven](https://github.com/hendisantika/spring-boot-googlemaps-sample/actions/workflows/maven.yml/badge.svg)](https://github.com/hendisantika/spring-boot-googlemaps-sample/actions/workflows/maven.yml)
+![Java](https://img.shields.io/badge/Java-25-orange)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1.1-brightgreen)
+
 A Spring Boot web application that integrates with Google Maps API to track and visualize places you've visited, want to
 visit, and favorite locations around the world.
 
@@ -19,17 +23,17 @@ visit, and favorite locations around the world.
 ## Tech Stack
 
 - **Backend:**
-    - Java 21
-    - Spring Boot 3.5.7
+    - Java 25
+    - Spring Boot 4.1.1
     - Spring Data JPA
     - Thymeleaf (Template Engine)
-    - ModelMapper 3.2.6
+    - ModelMapper 3.2.7
     - Lombok
 
 - **Frontend:**
     - Bootstrap 5.3.8
-    - jQuery 3.7.1
-    - Font Awesome 7.0.1
+    - jQuery 4.0.0
+    - Font Awesome 7.3.0
     - Google Maps JavaScript API
 
 - **Database:**
@@ -39,8 +43,8 @@ visit, and favorite locations around the world.
 
 Before running this application, make sure you have:
 
-- Java 21 or higher installed
-- Maven 3.6+ installed
+- Java 25 or higher installed
+- Maven 3.10+ (optional — the bundled Maven Wrapper `./mvnw` downloads it for you)
 - MySQL 8+ installed and running
 - Google Maps API Key ([Get one here](https://developers.google.com/maps/documentation/javascript/get-api-key))
 
@@ -87,7 +91,7 @@ cd spring-boot-googlemaps-sample
 4. Build the project:
 
 ```bash
-mvn clean package
+./mvnw clean package
 ```
 
 ## Running the Application
@@ -95,7 +99,7 @@ mvn clean package
 ### Using Maven:
 
 ```bash
-mvn spring-boot:run
+./mvnw spring-boot:run
 ```
 
 ### Using the JAR file:
@@ -168,13 +172,28 @@ resources will be automatically reflected without restarting the application.
 - **Artifact ID**: spring-boot-googlemaps-sample
 - **Version**: 0.0.1-SNAPSHOT
 
+## Continuous Integration
+
+GitHub Actions ([`.github/workflows/maven.yml`](.github/workflows/maven.yml)) builds and tests the project with
+Temurin JDK 25 on every push and pull request to `main`, and can be triggered manually via *workflow_dispatch*.
+On pushes to `main` it also submits the Maven dependency graph to GitHub so Dependabot alerts stay accurate.
+
+## Dependency Updates
+
+Dependabot ([`.github/dependabot.yml`](.github/dependabot.yml)) keeps dependencies up to date:
+
+| Ecosystem      | Schedule                        | Grouping                                                  | Commit prefix |
+|----------------|---------------------------------|-----------------------------------------------------------|---------------|
+| Maven          | Daily, 05:00 Asia/Jakarta       | Spring Boot, WebJars, Maven plugins, other minor/patch    | `build(deps)` |
+| GitHub Actions | Weekly (Monday), 05:00 Asia/Jakarta | All actions in a single PR                            | `ci(deps)`    |
+
 ## Troubleshooting
 
 ### Application won't start
 
 - Ensure MySQL is running and accessible
 - Check database credentials in `application.properties`
-- Verify Java 21 or higher is installed: `java --version`
+- Verify Java 25 or higher is installed: `java --version`
 
 ### Map not loading
 
@@ -183,8 +202,8 @@ resources will be automatically reflected without restarting the application.
 
 ### Build failures
 
-- Make sure Maven 3.6+ is installed: `mvn --version`
-- Clear Maven cache: `mvn clean`
+- Make sure JDK 25 is active: `./mvnw --version`
+- Clear build output: `./mvnw clean`
 - Delete `.m2/repository` and rebuild
 
 ## License
