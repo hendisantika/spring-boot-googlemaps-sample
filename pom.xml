@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.1.2</version>
+        <version>4.2.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.hendisantika</groupId>
@@ -16,7 +16,7 @@
     <properties>
         <java.version>25</java.version>
         <bootstrap.version>5.3.8</bootstrap.version>
-        <jquery.version>4.0.0</jquery.version>
+        <jquery.version>4.1.0</jquery.version>
         <fontawesome.version>7.3.0</fontawesome.version>
     </properties>
     <dependencies>
